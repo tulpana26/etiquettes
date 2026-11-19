@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mots à illustrer</title>
+<style>
+  :root{--paper:#f8f5ef;--ink:#1b1917;--soft:#6b6459;--rule:#ded7ca;--accent:#7c2f27;--tint:#efe7da}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:17px;line-height:1.6}
+  .wrap{max-width:860px;margin:0 auto;padding:54px 24px 120px}
+  header{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:34px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+  h1{font-size:clamp(28px,4.4vw,40px);line-height:1.1;margin:.35em 0 .3em;font-weight:400;letter-spacing:-.01em}
+  .lede{color:var(--soft);max-width:62ch;margin:0;font-size:16px}
+  section{margin:0 0 40px;padding-top:20px;border-top:1px solid var(--rule)}
+  .num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  h2{font-size:clamp(19px,2.6vw,24px);font-weight:400;margin:.15em 0 .8em;display:flex;align-items:baseline;gap:12px}
+  h2 span{font-size:12.5px;color:var(--soft);letter-spacing:.04em}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-family:inherit;font-size:14.5px;padding:7px 13px;border:1px solid var(--rule);
+    background:#fff;color:var(--ink);border-radius:999px;cursor:pointer;transition:all .12s}
+  .tag:hover{border-color:#c0b49e}
+  .tag.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .summary{position:fixed;left:0;right:0;bottom:0;background:rgba(248,245,239,.97);
+    border-top:1px solid var(--rule)}
+  .in{max-width:860px;margin:0 auto;padding:12px 24px;display:flex;gap:14px;align-items:center;
+    justify-content:space-between;flex-wrap:wrap;font-size:14px}
+  .count{color:var(--soft)}.count b{color:var(--ink)}
+  .btns{display:flex;gap:9px}
+  button.act{font-family:inherit;font-size:14px;padding:9px 16px;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);border-radius:2px;cursor:pointer}
+  button.act.ghost{background:transparent;color:var(--ink)}
+  pre{display:none;white-space:pre-wrap;font-size:13.5px;background:#fff;border:1px solid var(--rule);
+    padding:14px;margin-top:10px;max-height:240px;overflow:auto;font-family:ui-monospace,Menlo,monospace}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">Scribing — appareil iconographique</div>
+  <h1>Quels mots veulent une image</h1>
+  <p class="lede">Pour chaque section, les termes et les symboles qui y figurent. Touchez ceux qui
+  méritent une planche ; le bouton du bas compose la liste et la copie. Collez-la ici et je saurai
+  exactement quoi chercher.</p>
+</header>
+<div id="app"></div>
+<div class="summary"><div class="in">
+  <span class="count"><b id="n">0</b> mot(s) retenu(s)</span>
+  <span class="btns"><button class="act ghost" id="reset">Effacer</button>
+  <button class="act" id="copy">Copier la liste</button></span>
+</div><pre id="out"></pre></div>
+</div>
+<script id="donnees" type="application/json">[{"n": "I", "t": "Introduction", "tags": ["Dhûl-Qarnayn", "Gog et Magog", "le mur de fer et de cuivre", "la Grande Muraille", "Janus", "les portes solsticiales", "Saturne", "l'Âge d'or", "le Manvantara", "le Kali-Yuga", "Deva-Yana", "Pitri-Yana", "le barzakh", "le Cerastes Cornutus", "Cernunnos", "Pángǔ", "l'Œuf du Monde", "Madhu et Kaitabha", "les Titans", "l'Amphisbène", "le wâw", "l'alif", "la Parole Divine", "le Soleil", "le Ciel et la Terre", "le dixième Avatâra", "Jaya et Vijaya", "les deux montagnes"]}, {"n": "II", "t": "Pacte avec le diable", "tags": ["l'Équerre et le Compas", "le Double Carré", "les Deux Mains", "l'Union des Mains", "le Fil Divin", "le Pôle", "les Pôles de Satan", "le Centre Suprême", "l'Homme Universel", "le Dajjal", "la Kundalini", "les cinq tanmatras", "les cinq bhutas", "Paramashiva", "Nishkalata", "Ashuddha, Mishra, Shuddha", "le Cœur", "la Station", "le Pacte", "la Main Droite", "le Tasawwuf", "l'attachement", "le « dispositif »", "la caverne"]}, {"n": "III", "t": "La réalisation à rebours", "tags": ["le temple de Delphes", "« Connais-toi toi-même »", "la Kundalini ascendante", "le Guru Chakra", "Wisarga", "le triangle AKaTha", "Muladhara", "Samprajnata Samadhi", "Asamprajnata Samadhi", "l'Identité Suprême", "l'Identité Titanesque", "les Titans", "l'Athanor", "Parabindu", "le Q-L-B", "la Chambre du Milieu", "le Pôle de Satan", "les lieux numériques", "les « spectacles »", "les archétypes subconscients", "le renversement", "le miroir inversé", "le contre-initié"]}, {"n": "IV", "t": "L'organisation sociale contre-traditionnelle", "tags": ["la Roue", "les « masses »", "Perceval", "le château du Graal", "la manne du désert", "l'Homme Universel", "la Grande Réinitialisation", "les Awliyâ", "le Prototype", "l'Antéchrist", "la royauté sacrée", "l'Apôtre", "les Devas", "Interiora Terrae", "le sacrifice", "l'Unité et la Multiplicité", "le Royaume", "le Purgatoire", "le « dispositif »"]}, {"n": "V", "t": "L'antéchrist", "tags": ["les automates de bois", "l'intelligence artificielle", "la Bible virtuelle", "Behemoth", "les Échecs", "le Dajjal", "l'Intellect Divin", "les castes", "le Pôle", "le Shaykh", "le Roi du Monde", "les Asuras", "les Devas", "Anthropic et Claude", "OpenAI", "les « masses »", "la multiplicité", "la « Grande Parodie »", "le « dispositif »"]}, {"n": "VI", "t": "Igne natura renovatur integra", "tags": ["l'Athanor", "at-Tannûr", "le carré Sator", "les Ashvins", "Sayyidina Idris", "Hermès", "Mercure", "le caducée", "le nûn", "le mîm", "Ardhanarishvara", "le Qutb", "les Matrikas", "le Figuier et l'Olivier", "Sayyidina Ilyâs", "Khidr", "la Baleine", "Panchajanya", "les Rose-Croix", "Sayyidina Issa", "le Souffle", "les Rishis"]}, {"n": "VII", "t": "La fin d'une illusion", "tags": ["al-Mahdî", "le Kitab al-Jafr", "la lettre mîm", "les Muqatta'at", "al-Kâtib", "al-Muhsî", "les deux éclipses", "le Centre Suprême", "les castes renversées", "Sayyidina Issa", "la Makâra", "le Khalifa", "les Herméneutes", "l'Interprète", "le Sceau", "la Miséricorde", "Vattan", "le Wâw"]}, {"n": "VIII", "t": "Remarques finales", "tags": ["Agarttha", "le Roi du Monde", "les cavernes souterraines", "Gog et Magog", "l'œil de l'aiguille", "la Makâra", "les Saturnales", "le Manvantara-loka", "le Satya-Yuga", "la fin du Kali-Yuga", "le satanisme doctrinal", "le Pendu", "la Pierre", "le Christ", "l'Âge d'Or", "les loka et aloka"]}]</script>
+<script>
+const D = JSON.parse(document.getElementById("donnees").textContent);
+const KEY = "scribing-tags-v1";
+let S = JSON.parse(localStorage.getItem(KEY) || "{}");
+const app = document.getElementById("app");
+D.forEach(sec => {
+  const el = document.createElement("section");
+  el.innerHTML = '<div class="num">Section ' + sec.n + '</div><h2>' + sec.t +
+                 ' <span id="c-' + sec.n + '"></span></h2><div class="tags" id="t-' + sec.n + '"></div>';
+  app.appendChild(el);
+  const box = el.querySelector(".tags");
+  sec.tags.forEach(tag => {
+    const b = document.createElement("button");
+    b.className = "tag"; b.textContent = tag; b.dataset.k = sec.n + "|" + tag;
+    box.appendChild(b);
+  });
+});
+function paint(){
+  document.querySelectorAll(".tag").forEach(b => b.classList.toggle("on", !!S[b.dataset.k]));
+  let total = 0;
+  D.forEach(sec => {
+    const n = sec.tags.filter(t => S[sec.n + "|" + t]).length;
+    total += n;
+    document.getElementById("c-" + sec.n).textContent = n ? n + " retenu(s)" : "";
+  });
+  document.getElementById("n").textContent = total;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest(".tag"); if (!b) return;
+  const k = b.dataset.k;
+  if (S[k]) delete S[k]; else S[k] = 1;
+  localStorage.setItem(KEY, JSON.stringify(S));
+  paint();
+});
+document.getElementById("reset").onclick = () => {
+  S = {}; localStorage.setItem(KEY, "{}"); paint();
+  document.getElementById("out").style.display = "none";
+};
+document.getElementById("copy").onclick = async () => {
+  let out = "";
+  D.forEach(sec => {
+    const sel = sec.tags.filter(t => S[sec.n + "|" + t]);
+    if (sel.length) out += sec.n + " — " + sec.t + " : " + sel.join(" · ") + "\n";
+  });
+  const pre = document.getElementById("out");
+  pre.textContent = out || "Aucun mot retenu pour l'instant.";
+  pre.style.display = "block";
+  try {
+    await navigator.clipboard.writeText(pre.textContent);
+    document.getElementById("copy").textContent = "Copié";
+  } catch (err) { document.getElementById("copy").textContent = "Sélectionnez le texte"; }
+  setTimeout(() => { document.getElementById("copy").textContent = "Copier la liste"; }, 1800);
+};
+paint();
+</script>
+</body>
+</html>
