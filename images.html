@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Images à choisir</title>
+<style>
+ :root{--paper:#f8f5ef;--ink:#1b1917;--soft:#6b6459;--rule:#ded7ca;--accent:#7c2f27}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--paper);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:17px;line-height:1.6}
+ .wrap{max-width:1000px;margin:0 auto;padding:50px 22px 120px}
+ header{border-bottom:1px solid var(--rule);padding-bottom:22px;margin-bottom:34px}
+ .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
+ h1{font-size:clamp(27px,4.2vw,38px);line-height:1.12;margin:.35em 0 .3em;font-weight:400}
+ .lede{color:var(--soft);max-width:64ch;margin:0;font-size:16px}
+ section{margin:0 0 44px;padding-top:20px;border-top:1px solid var(--rule)}
+ .num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+ h2{font-size:clamp(19px,2.6vw,24px);font-weight:400;margin:.15em 0 .9em}
+ .tag{margin:0 0 30px}
+ .tag h3{font-size:17px;font-weight:600;margin:0 0 4px}
+ .tag h3 a{font-size:12.5px;font-weight:400;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(124,47,39,.35);margin-left:10px;letter-spacing:.03em}
+ .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+ @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+ label.card{display:block;position:relative;border:2px solid transparent;background:#fff;cursor:pointer;border-radius:2px;overflow:hidden;transition:border-color .12s}
+ label.card img{display:block;width:100%;height:170px;object-fit:cover;background:#eae4d8}
+ label.card .n{position:absolute;top:8px;left:8px;width:22px;height:22px;border-radius:50%;background:rgba(248,245,239,.92);color:var(--soft);font-size:12px;display:flex;align-items:center;justify-content:center}
+ label.card.sel{border-color:var(--accent)}
+ label.card.sel .n{background:var(--accent);color:#fff}
+ .none{margin-top:8px;font-size:14px;color:var(--soft)}
+ .none label{display:inline-flex;gap:8px;align-items:center;cursor:pointer}
+ .summary{position:fixed;left:0;right:0;bottom:0;background:rgba(248,245,239,.97);border-top:1px solid var(--rule)}
+ .in{max-width:1000px;margin:0 auto;padding:12px 22px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:14px}
+ .count{color:var(--soft)}.count b{color:var(--ink)}
+ button.act{font-family:inherit;font-size:14px;padding:9px 16px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:2px;cursor:pointer}
+ button.act.ghost{background:transparent;color:var(--ink)}
+ pre{display:none;white-space:pre-wrap;font-size:13px;background:#fff;border:1px solid var(--rule);padding:13px;margin-top:10px;max-height:230px;overflow:auto;font-family:ui-monospace,Menlo,monospace}
+</style></head><body>
+<div class="wrap">
+<header>
+ <div class="kicker">Scribing — appareil iconographique, étape 2</div>
+ <h1>Quatre images par mot</h1>
+ <p class="lede">Une image par mot retenu, choisie parmi quatre trouvées sur Pinterest. Touchez celle que vous gardez ;
+ le bouton du bas compose la liste. Les vignettes viennent de Pinterest ; le lien à droite du mot ouvre la recherche correspondante.</p>
+</header>
+<div id="app"></div>
+<div class="summary"><div class="in">
+ <span class="count"><b id="n">0</b> mot(s) décidé(s)</span>
+ <span style="display:flex;gap:9px"><button class="act ghost" id="reset">Effacer</button><button class="act" id="copy">Copier la liste</button></span>
+</div><pre id="out"></pre></div>
+</div>
+<script id="donnees" type="application/json">[{"n": "I", "t": "Introduction", "items": [{"tag": "Gog et Magog", "q": "Gog Magog wall islamic miniature", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "le Cerastes Cornutus", "q": "cerastes cornutus horned serpent engraving", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/fa/2e/52/fa2e52b516a68290ab96d659312430f6.jpg"]}, {"tag": "Cernunnos", "q": "Cernunnos celtic horned god", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/18/2e/ea/182eead35b4633910634433e42feba03.jpg", "https://i.pinimg.com/736x/f5/ae/28/f5ae282188c34193d5f3a7dbef288b30.jpg", "https://i.pinimg.com/736x/ae/f8/e7/aef8e7dddea187a1054cbe82d24477b8.png"]}, {"tag": "Pángǔ", "q": "Pangu chinese giant creation myth", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/8d/41/8a/8d418a266bfa5c197101c650edaff8dd.jpg", "https://i.pinimg.com/736x/ed/cf/d7/edcfd71e3907f6fffd8e1cdf7319ed20.jpg", "https://i.pinimg.com/736x/40/cd/09/40cd09f42be44ff49ed36297d9bf4f8b.jpg"]}, {"tag": "Madhu et Kaitabha", "q": "Madhu Kaitabha demons vishnu", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "l'Amphisbène", "q": "amphisbaena two headed serpent medieval", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}]}, {"n": "II", "t": "Pacte avec le diable", "items": [{"tag": "l'Équerre et le Compas", "q": "square and compass masonic", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}, {"tag": "ad-Dajjal", "q": "Dajjal islamic eschatology", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/09/04/c1/0904c14a02b413f0a13dd563fe0b212e.jpg"]}, {"tag": "l'Œil du Cœur", "q": "eye of the heart sufi symbolism", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}, {"tag": "le « dispositif »", "q": "microchip circuit board macro", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/fa/2e/52/fa2e52b516a68290ab96d659312430f6.jpg"]}, {"tag": "le domaine numérique", "q": "digital code abstract data", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/fa/2e/52/fa2e52b516a68290ab96d659312430f6.jpg"]}, {"tag": "l'encodage et le décodage", "q": "binary code numbers abstract", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}]}, {"n": "III", "t": "La réalisation à rebours", "items": [{"tag": "l'Athanor", "q": "athanor alchemy furnace engraving", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}, {"tag": "les archétypes subconscients", "q": "jung archetypes unconscious symbols", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/50/11/b2/5011b2608b8aa70e9a329337bbae4eac.jpg"]}, {"tag": "les empreintes de mains", "q": "prehistoric cave handprints", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/71/ba/36/71ba367d12e0c3733c893f0f3172301b.jpg", "https://i.pinimg.com/736x/09/e3/7e/09e37e11c3756f7ef09acfaf7f87ec36.jpg", "https://i.pinimg.com/736x/0b/bd/84/0bbd84b8ae9f85b2451c9c79d3c0625a.jpg"]}]}, {"n": "IV", "t": "L'organisation sociale contre-traditionnelle", "items": [{"tag": "la manne du désert", "q": "manna from heaven painting", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/99/fb/13/99fb13857d9017212e5dc4ee74f3e734.jpg", "https://i.pinimg.com/736x/4d/8d/cc/4d8dcc6146719939fc0ee88aa9300206.jpg", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg"]}, {"tag": "le Royaume de l'Antéchrist", "q": "antichrist apocalyptic throne", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/2f/8f/f6/2f8ff66b1a03ac487a069f3f44b2a285.jpg", "https://i.pinimg.com/736x/8e/78/1b/8e781b54d7da05950d6bb74c59fc27c2.jpg", "https://i.pinimg.com/736x/7e/4b/e9/7e4be90da7b2e79303478e73b48933bd.jpg"]}]}, {"n": "VI", "t": "Igne natura renovatur integra", "items": [{"tag": "les Ashvins", "q": "ashvins vedic twin horsemen", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "Sayyidina Ilyâs", "q": "prophet elijah islamic miniature", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/32/0c/1b/320c1b64e7054be68c8db7498f400acf.jpg", "https://i.pinimg.com/736x/08/52/19/08521987273a6a1a34819c4dcbd17be9.jpg", "https://i.pinimg.com/736x/9a/c5/a5/9ac5a56ea2cf0577a6cb35042aa7855d.jpg"]}, {"tag": "al-Khidr", "q": "al khidr islamic miniature", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/38/a3/dd/38a3dd647948688c840337c622e1bf71.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "Panchajanya", "q": "panchajanya conch shell krishna", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/53/cc/ce/53cccedda0cc6347202379cf4fba3a8f.jpg", "https://i.pinimg.com/736x/e9/b5/ba/e9b5ba6a6e1aff9fa90aa79e86e342c2.jpg", "https://i.pinimg.com/736x/48/2b/7f/482b7fa4587931e8dc091d7ab1bdf38c.jpg"]}, {"tag": "les Quatre Kumaras", "q": "sanat kumara four kumaras", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/8e/16/95/8e1695c33d3da696c2ada6e64c1529ed.png", "https://i.pinimg.com/736x/2e/5e/bd/2e5ebd2342c5dc8f406c9a9578116144.jpg", "https://i.pinimg.com/736x/03/6a/c6/036ac61980e1fb432111aa3b4ffb6901.jpg"]}, {"tag": "l'Arche", "q": "noah ark painting deluge", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/a9/e3/0e/a9e30e3fed8449a7874ea498ec7d0b93.png"]}, {"tag": "le Yoni", "q": "yoni symbol shiva lingam", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/fa/2e/52/fa2e52b516a68290ab96d659312430f6.jpg"]}, {"tag": "le Hamsa", "q": "hamsa hand amulet", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png", "https://i.pinimg.com/736x/fa/2e/52/fa2e52b516a68290ab96d659312430f6.jpg"]}]}, {"n": "VII", "t": "La fin d'une illusion", "items": [{"tag": "la lettre mîm", "q": "arabic letter mim calligraphy", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/c1/66/87/c16687b9a50dead49c2f24c2e5bff7c2.jpg", "https://i.pinimg.com/736x/d0/c3/b7/d0c3b774335012aa9ae02a7bf3442059.jpg", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg"]}, {"tag": "la Makâra", "q": "makara sea monster hindu", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/dc/46/96/dc4696dbdb89a4cf438caf0be584c5eb.jpg", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "le Capricorne", "q": "capricorn zodiac engraving", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/23/8d/b1/238db119b15b1eb023d95b86fde643e8.jpg", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "Hiranyagarbha", "q": "hiranyagarbha golden egg vedic", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}, {"tag": "la Théorie du Geste", "q": "mudra hand gesture indian sculpture", "imgs": ["https://i.pinimg.com/736x/d5/3b/01/d53b014d86a6b6761bf649a0ed813c2b.png", "https://i.pinimg.com/736x/64/01/e2/6401e2b234ec7d4821d73d3ad738f101.jpg", "https://i.pinimg.com/736x/22/a7/e0/22a7e04a2039fbf25996e932055fff43.png"]}]}]</script>
+<script>
+const D=JSON.parse(document.getElementById("donnees").textContent);
+const KEY="scribing-imgs-v1";
+let S=JSON.parse(localStorage.getItem(KEY)||"{}");
+const app=document.getElementById("app");
+D.forEach(sec=>{
+ const el=document.createElement("section");
+ el.innerHTML='<div class="num">Section '+sec.n+'</div><h2>'+sec.t+'</h2>';
+ sec.items.forEach(it=>{
+  const k=sec.n+"|"+it.tag;
+  const box=document.createElement("div"); box.className="tag";
+  const lien="https://www.pinterest.com/search/pins/?q="+encodeURIComponent(it.q);
+  let h='<h3>'+it.tag+' <a href="'+lien+'" target="_blank" rel="noopener">voir sur Pinterest</a></h3><div class="grid">';
+  it.imgs.forEach((u,i)=>{
+   h+='<label class="card" data-k="'+k+'" data-v="'+(i+1)+'"><span class="n">'+(i+1)+'</span>'+
+      '<img loading="lazy" src="'+u+'" alt=""></label>';
+  });
+  h+='</div><div class="none"><label><input type="radio" name="'+k+'" value="none"> aucune de ces quatre</label></div>';
+  box.innerHTML=h; el.appendChild(box);
+ });
+ app.appendChild(el);
+});
+function paint(){
+ document.querySelectorAll("label.card").forEach(c=>{
+  const on=S[c.dataset.k]===c.dataset.v;
+  c.classList.toggle("sel",on);
+ });
+ document.querySelectorAll("input[type=radio]").forEach(r=>{ if(S[r.name]==="none") r.checked=true; });
+ let n=0; D.forEach(s=>s.items.forEach(i=>{ if(S[s.n+"|"+i.tag]) n++; }));
+ document.getElementById("n").textContent=n;
+}
+document.addEventListener("click",e=>{
+ const c=e.target.closest("label.card"); if(!c) return;
+ const k=c.dataset.k, v=c.dataset.v;
+ if(S[k]===v) delete S[k]; else S[k]=v;
+ localStorage.setItem(KEY,JSON.stringify(S)); paint();
+});
+document.addEventListener("change",e=>{
+ if(e.target.type==="radio"&&e.target.value==="none"){
+  S[e.target.name]="none"; localStorage.setItem(KEY,JSON.stringify(S)); paint();
+ }
+});
+document.getElementById("reset").onclick=()=>{S={};localStorage.setItem(KEY,"{}");paint();document.getElementById("out").style.display="none";};
+document.getElementById("copy").onclick=async()=>{
+ let out="";
+ D.forEach(s=>{ const l=[]; s.items.forEach(i=>{ const v=S[s.n+"|"+i.tag]; if(v) l.push(i.tag+" → "+(v==="none"?"aucune":("image "+v))); });
+  if(l.length) out+=s.n+" — "+s.t+" : "+l.join(" · ")+"\n"; });
+ const pre=document.getElementById("out");
+ pre.textContent=out||"Aucun choix encore enregistré."; pre.style.display="block";
+ try{ await navigator.clipboard.writeText(pre.textContent); document.getElementById("copy").textContent="Copié"; }
+ catch(err){ document.getElementById("copy").textContent="Sélectionnez le texte"; }
+ setTimeout(()=>{document.getElementById("copy").textContent="Copier la liste";},1800);
+};
+paint();
+</script></body></html>
